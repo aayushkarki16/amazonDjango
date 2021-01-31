@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form action="{% url 'search_product' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" placeholder="Search" aria-label="Search"
+                           name="keyword_product">
+                    <select name="product_column" class="btn btn-light">
+                        <option value="item">Item</option>
+                        <option value="price">Price</option>
+                        <option value="discount">Discount</option>
+                    </select>
+                    <button type="submit" value="search">Search</button>
+                    {% if request.path == '/search_ministry' %}
+                        <button  type="submit" value="search">All Result
+                        </button>
+                    {% endif %}
+ </form>
+<a href="{% url 'product' %}">Add more products</a>
+<table border="1">
+    <tr>
+        <th>Product name</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+
+    </tr>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.discount }}</td>
+            <td><a href="{% url 'productedit' product.id %}">Edit</a> </td>
+            <td><a href="{% url 'productdestroy' product.id %}">Delete</a> </td>
+
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

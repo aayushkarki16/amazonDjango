@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'offer' %}">Add more offer</a>
+<table border="1">
+    <tr>
+        <th>Shop name</th>
+        <th>Image</th>
+        <th>Offer Name</th>
+        <th>Valid From</th>
+        <th>Valid Till</th>
+        <th>Discount</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+
+    </tr>
+    {% for offer in offers %}
+        <tr>
+            <td>{{ offer.shop_name }}</td>
+           <td><img src="{{ offer.image.url }}" height="60px" width="60px"></td>
+            <td>{{ offer.offer_name }}</td>
+            <td>{{ offer.valid_from }}</td>
+            <td>{{ offer.valid_till }}</td>
+            <td>{{ offer.discount }}</td>
+             <td><a href="{% url 'offeredit' offer.id %}">Edit</a> </td>
+             <td><a href="{% url 'offerdestroy' offer.id %}">Delete</a> </td>
+
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="{% url 'shop' %}">
+    {% csrf_token %}
+    <input type="text" placeholder="Shop name" name="shop_name">
+    <input type="number" placeholder="contact" name="contact">
+    <input type="text" placeholder="location" name="location">
+    <input type="text" placeholder="category" name="category">
+    <label for="branded">Choose Brand:</label>
+    <select name="branded" id="branded">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    <input type="text" placeholder="Contact person" name="contact_person">
+    <input type="email" placeholder="email@gmail.com" name="email">
+    <input type="password" placeholder="******" name="password">
+    <input type="password" placeholder="******" name="password2">
+    <input type="submit" value="sign up">
+</form>
+</body>
+</html>

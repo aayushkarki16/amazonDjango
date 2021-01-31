@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="{% url 'offer'%}" enctype = “multipart/form-data">
+    {% csrf_token %}
+    <input type="text" placeholder="Shop name here" name="shop_name">
+    <input type="file" name="image">
+    <input type="text" placeholder="Offer name here" name="offer_name">
+    <input type="number" placeholder="Valid from" name = "valid_from">
+    <input type="number" placeholder="Valid till" name ="valid_till">
+    <input type="number" placeholder="Discount" name ="discount">
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
